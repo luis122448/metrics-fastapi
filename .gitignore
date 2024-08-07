@@ -1,0 +1,6 @@
+__# Python
+__pycache__
+.venv
+logs
+.vscode
+.idea
