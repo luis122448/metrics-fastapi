@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 
-class ProjectMetricsSchema(BaseModel):
+class ProjectSchema(BaseModel):
     id: Optional[int]
     name: str
     created_at: Optional[datetime] = None

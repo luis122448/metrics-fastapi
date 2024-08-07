@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from app.router.project_metrics_router import project_metrics_router
-from app.router.metrics_router import metrics_router
-from app.config.database_config import engine, Base
+from router.project_router import project_router
+from router.metrics_router import metrics_router
+from config.database_config import engine, Base
 
 app = FastAPI()
 
@@ -12,5 +12,5 @@ app.docs_url = "/docs"
 
 Base.metadata.create_all(bind=engine)
 
-app.include_router(project_metrics_router)
+app.include_router(project_router)
 app.include_router(metrics_router)

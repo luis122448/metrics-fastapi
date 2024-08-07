@@ -1,4 +1,4 @@
-from app.model.metrics_model import MetricsModel
+from model.metrics_model import MetricsModel
 
 
 class MetricsService:

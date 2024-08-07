@@ -1,10 +1,10 @@
-from app.config.database_config import Base
+from config.database_config import Base
 from sqlalchemy import Column, Float, Integer, String, DateTime
 from datetime import datetime
 
 
-class ProjectMetricsModel(Base):
-    __tablename__ = "PROJECT_METRICS"
+class ProjectModel(Base):
+    __tablename__ = "project"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)

@@ -1,4 +1,4 @@
-from app.config.database_config import Base
+from config.database_config import Base
 from sqlalchemy import Column, Float, Integer, String, DateTime, PrimaryKeyConstraint, Index, ForeignKeyConstraint
 from datetime import datetime
 
@@ -18,8 +18,8 @@ class MetricsModel(Base):
     updated_at = Column(DateTime, default=datetime.utcnow)
 
     __table_args__ = (
-        PrimaryKeyConstraint('project_id', 'metrics_type', name='PK_METRICS'),
-        ForeignKeyConstraint(['project_id'], ['PROJECT.id'], name='FK_METRICS_PROJECT_METRICS_ID'),
+        PrimaryKeyConstraint('id', 'project_id', name='PK_METRICS'),
+        ForeignKeyConstraint(['project_id'], ['PROJECT.id'], name='FK_METRICS_project_ID'),
         Index('IDX_METRICS_PROJECT_TYPE_NAME', 'project_id', 'metrics_type'),
     )
 
