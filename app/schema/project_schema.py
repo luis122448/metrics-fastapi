@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class ProjectSchema(BaseModel):
-    id: Optional[int]
+    id: Optional[int] = None
     name: str
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
