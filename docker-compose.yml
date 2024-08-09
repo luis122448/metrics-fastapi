@@ -6,7 +6,6 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    environment:
     command: "python app/server.py"
     volumes:
       - ./database /opt/database
