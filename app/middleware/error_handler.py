@@ -16,7 +16,6 @@ class ExceptionHandlerMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next: DispatchFunction) -> Response | JSONResponse:
         try:
             response = await call_next(request)
-            request.state.db.close()
             return response
         except HTTPException as e:
             return JSONResponse({
