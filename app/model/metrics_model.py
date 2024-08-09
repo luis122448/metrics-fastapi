@@ -6,7 +6,7 @@ from datetime import datetime
 class MetricsModel(Base):
     __tablename__ = "TBL_METRICS"
 
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    id = Column(Integer, nullable=False)
     project_id = Column(Integer, nullable=False)
     metrics_type = Column(String(50), nullable=False)
     name = Column(String(50))
@@ -17,10 +17,10 @@ class MetricsModel(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow)
 
-    # __table_args__ = (
-    #     PrimaryKeyConstraint('id', 'project_id', name='PK_METRICS'),
-    #     Index('IDX_METRICS_PROJECT_TYPE_NAME', 'id', 'project_id'),
-    # )
+    __table_args__ = (
+        PrimaryKeyConstraint('id', 'project_id', name='PK_METRICS'),
+        Index('IDX_METRICS_PROJECT_TYPE_NAME', 'id', 'project_id'),
+    )
 
     def to_dict(self):
         def convert_datetime(dt):

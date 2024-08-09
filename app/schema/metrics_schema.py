@@ -35,7 +35,7 @@ class MetricsSchema(BaseModel):
         }
 
 
-class BasicMetricsSchema(BaseModel):
+class CreateMetricsSchema(BaseModel):
     project_id: int
     metrics_type: str
     value_integer: Optional[int] = None
@@ -52,6 +52,32 @@ class BasicMetricsSchema(BaseModel):
                 "examples": [{
                     "project_id": 0,
                     "metrics_type": "INTEGER",
+                    "value_integer": "",
+                    "value_float": "",
+                    "value_string": "",
+                    "value_date": ""
+                }]
+            }
+        }
+
+
+class UpdateMetricsSchema(BaseModel):
+    id: int
+    project_id: int
+    value_integer: Optional[int] = None
+    value_float: Optional[float] = None
+    value_string: Optional[str] = None
+    value_date: Optional[datetime] = None
+
+    class Config:
+        json_encoders = {
+            datetime: lambda v: v.isoformat(),
+        }
+        model_config = {
+            "json_schema_extra": {
+                "examples": [{
+                    "id": 0,
+                    "project_id": 0,
                     "value_integer": "",
                     "value_float": "",
                     "value_string": "",
