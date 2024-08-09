@@ -9,6 +9,6 @@ RUN pip install --no-cache-dir --upgrade -r /opt/requirements.txt
 COPY ./app /opt/app/
 COPY ./database /opt/database/
 
-EXPOSE 8000
+EXPOSE 8005
 
 CMD [ "python", "app/server.py" ]
