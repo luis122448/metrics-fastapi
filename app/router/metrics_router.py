@@ -46,8 +46,8 @@ def delete_metrics(metrics_id: int):
 
 @metrics_router.websocket('/metrics/websocket/{project_id}')
 async def websocket_endpoint(websocket: WebSocket, project_id: int):
+    sql_connection = SessionLocal()
     try:
-        sql_connection = SessionLocal()
         await websocket.accept()
         metrics_service = MetricsService(sql_connection)
         while True:
