@@ -1,0 +1,42 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_IMAGE = 'metrics-fastapi-app'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/luis122448/metrics-fastapi.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    def app = docker.build(DOCKER_IMAGE)
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'docker-compose run app npm test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker-compose down'
+                sh 'docker-compose up -d'
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker system prune -f'
+        }
+    }
+}
