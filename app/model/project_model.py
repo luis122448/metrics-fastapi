@@ -4,10 +4,10 @@ from datetime import datetime
 
 
 class ProjectModel(Base):
-    __tablename__ = "project"
+    __tablename__ = "TBL_PROJECT"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    name = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, onupdate=datetime.utcnow)
 
