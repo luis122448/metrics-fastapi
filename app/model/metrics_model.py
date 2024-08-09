@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 class MetricsModel(Base):
-    __tablename__ = "METRICS"
+    __tablename__ = "TBL_METRICS"
 
     id = Column(Integer, nullable=False)
     project_id = Column(Integer, nullable=False)
@@ -19,8 +19,7 @@ class MetricsModel(Base):
 
     __table_args__ = (
         PrimaryKeyConstraint('id', 'project_id', name='PK_METRICS'),
-        ForeignKeyConstraint(['project_id'], ['PROJECT.id'], name='FK_METRICS_project_ID'),
-        Index('IDX_METRICS_PROJECT_TYPE_NAME', 'project_id', 'metrics_type'),
+        Index('IDX_METRICS_PROJECT_TYPE_NAME', 'id', 'project_id'),
     )
 
     def to_dict(self):
