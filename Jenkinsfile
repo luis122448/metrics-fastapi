@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'metrics-fastapi-app'
         PORT = credentials('metrics-fastapi')
-        HOST_DATABASE_DIR = = credentials('metrics-fastapi')
+        HOST_DATABASE_DIR = credentials('metrics-fastapi')
     }
 
     stages {
