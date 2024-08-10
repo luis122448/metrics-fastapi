@@ -18,6 +18,8 @@ app.docs_url = "/docs"
 # Add middleware
 origins = [
     "https://luis122448.com",
+    "https://dota-shuffle-angular-production.up.railway.app",
+    "https://dota-shuffle-production.up.railway.app",
     "http://localhost:4200",
     "http://localhost:4600",
     "http://localhost:4800",

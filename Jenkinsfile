@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM('* * * * *')
+        githubPush()
+    }
+
     environment {
         DOCKER_IMAGE = 'metrics-fastapi-app'
         PORT = credentials('metrics-fastapi')
