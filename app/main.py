@@ -39,8 +39,8 @@ app.add_middleware(ExceptionHandlerMiddleware)
 app.add_exception_handler(StarletteHTTPException, http_exception_handler)
 
 # Add routes
-app.include_router(project_router)
-app.include_router(metrics_router)
+app.include_router(project_router, prefix="/app")
+app.include_router(metrics_router, prefix="/app")
 
 
 @app.websocket("/communicate")
