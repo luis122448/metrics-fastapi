@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: metrics-fastapi
+    env_file:
+      - ./.env
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: "python app/server.py"
+    volumes:
+      - ./database:/opt/database
+    ports:
+      - "8083:8083"
+    restart: always
