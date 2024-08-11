@@ -7,8 +7,8 @@ services:
       context: .
       dockerfile: Dockerfile
     command: "python app/server.py"
-    volumes:
-      - /home/developer-user/database/sql-lite/metrics-database:/opt/database
+#    volumes:
+#      - /home/developer-user/database/sql-lite/metrics-database:/opt/database
     ports:
       - "8083:8083"
     restart: always
