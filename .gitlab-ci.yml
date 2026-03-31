@@ -12,10 +12,11 @@ stages:
 
 build-prod:
   stage: build
-  image: docker:latest
   tags: [self-hosted, linux, prod, arm64]
   services:
-    - docker:dind
+    - name: docker:24.0.7-dind
+      alias: docker
+      command: ["--host=tcp://0.0.0.0:2375", "--tls=false"]
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""
@@ -71,10 +72,11 @@ notify-prod:
 
 build-dev:
   stage: build
-  image: docker:latest
   tags: [self-hosted, linux, dev, arm64]
   services:
-    - docker:dind
+    - name: docker:24.0.7-dind
+      alias: docker
+      command: ["--host=tcp://0.0.0.0:2375", "--tls=false"]
   variables:
     DOCKER_HOST: tcp://docker:2375
     DOCKER_TLS_CERTDIR: ""

@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir --upgrade -r /opt/requirements.txt
 
 COPY ./app /opt/app/
 COPY ./database /opt/database/
-#COPY ./database/query.sql /opt/database/query.sql
+COPY ./scripts /opt/scripts/
 
 # Initialize the database
 #RUN sqlite3 /opt/database/metrics.db < /opt/database/query.sql
