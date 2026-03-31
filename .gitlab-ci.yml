@@ -62,7 +62,7 @@ notify-prod:
     - echo "=============================================================="
     - echo "Deployment has been successfully triggered in PRODUCTION."
     - echo "Please verify the application is working correctly at:"
-    - echo "https://metrics.api.bbg.pe"
+    - echo "https://metrics.bbg.pe"
     - echo "If any issue is detected, review the deployment logs immediately."
     - echo "=============================================================="
 
@@ -123,6 +123,6 @@ notify-dev:
     - echo "=============================================================="
     - echo "Deployment has been successfully triggered in Testing/Development."
     - echo "Please verify the application is working correctly at:"
-    - echo "https://metrics.api.test.bbg.pe"
+    - echo "https://metrics.test.bbg.pe"
     - echo "If any issue is detected, review the deployment logs immediately."
     - echo "=============================================================="
