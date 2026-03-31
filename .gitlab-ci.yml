@@ -48,7 +48,7 @@ deploy-prod:
     - mkdir -p ~/.kube
     - echo "$KUBE_CONFIG" | base64 -d > ~/.kube/config
     - kubectl config use-context "$KUBE_CONTEXT"
-    - kubectl rollout restart deployment metrics-fastapi-deployment -n "$KUBE_NAMESPACE"
+    - kubectl rollout restart deployment py-metrics-fastapi-deployment -n "$KUBE_NAMESPACE"
 
 notify-prod:
   stage: notify
@@ -109,7 +109,7 @@ deploy-dev:
     - mkdir -p ~/.kube
     - echo "$KUBE_CONFIG" | base64 -d > ~/.kube/config
     - kubectl config use-context "$KUBE_CONTEXT"
-    - kubectl rollout restart deployment metrics-fastapi-deployment -n "$KUBE_NAMESPACE"
+    - kubectl rollout restart deployment py-metrics-fastapi-deployment -n "$KUBE_NAMESPACE"
 
 notify-dev:
   stage: notify
