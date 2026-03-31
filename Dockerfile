@@ -23,6 +23,9 @@ COPY ./database /opt/database/
 # Initialize the database
 #RUN sqlite3 /opt/database/metrics.db < /opt/database/query.sql
 
+COPY ./entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
+
 EXPOSE 8083
 
-CMD [ "python", "app/server.py" ]
+ENTRYPOINT ["/opt/entrypoint.sh"]

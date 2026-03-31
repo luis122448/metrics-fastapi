@@ -5,3 +5,6 @@ logs
 .vscode
 .idea
 .env
+
+# Database
+*.db

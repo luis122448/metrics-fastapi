@@ -5,11 +5,12 @@ from router.metrics_router import metrics_router
 from config.database_config import engine, Base
 from middleware.error_handler import ExceptionHandlerMiddleware, http_exception_handler
 from starlette.exceptions import HTTPException as StarletteHTTPException
+from version import BUILD_VERSION_NUMBER, BUILD_VERSION_DATE
 
 app = FastAPI()
 
 app.title = "Metrics API"
-app.version = "0.1"
+app.version = f"{BUILD_VERSION_NUMBER} ({BUILD_VERSION_DATE})"
 app.description = "API for metrics management"
 app.docs_url = "/docs"
 
