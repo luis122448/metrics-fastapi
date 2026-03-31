@@ -6,7 +6,7 @@ set -e
 
 # --- Configuration ---
 DOCKERFILE_PATH="."
-IMAGE_NAME="metrics-fastapi"
+IMAGE_NAME="py-metrics-fastapi"
 
 # --- Inputs ---
 VERSION="$1"
