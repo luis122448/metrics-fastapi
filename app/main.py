@@ -2,6 +2,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from router.project_router import project_router
 from router.metrics_router import metrics_router
+from router.health_router import health_router
 from config.database_config import engine, Base
 from middleware.error_handler import ExceptionHandlerMiddleware, http_exception_handler
 from starlette.exceptions import HTTPException as StarletteHTTPException
@@ -40,6 +41,7 @@ app.add_middleware(ExceptionHandlerMiddleware)
 app.add_exception_handler(StarletteHTTPException, http_exception_handler)
 
 # Add routes
+app.include_router(health_router, prefix="/api")
 app.include_router(project_router, prefix="/app")
 app.include_router(metrics_router, prefix="/app")
 
